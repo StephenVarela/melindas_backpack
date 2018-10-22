@@ -45,6 +45,19 @@ class BackpackTest < MiniTest::Test
 
   ###### TESTS ABOUT GYM SHOES... wait, where are the tests about gym shoes? #####
   # is something missing here?
+  def test_adding_gym_shoes_on_monday
+    day = 'monday'
+    backpack = build(:backpack, day_of_week: day)
+
+    assert_includes(backpack.items, 'gym shoes')
+  end
+
+  def test_adding_gym_shoes_on_thursday
+    day = 'thursday'
+    backpack = build(:backpack, day_of_week: day)
+
+    assert_includes(backpack.items, 'gym shoes')
+  end
 
 
   ##### TESTS ABOUT PRINTING THE LIST #####
@@ -58,7 +71,7 @@ Day: monday, Weather: sunny
 - shirt
 - gym shoes
 - packed lunch"
-    assert_equal(expected, backpack.my_func)
+    assert_equal(expected, backpack.print_backpack_contents)
   end
 
 end
